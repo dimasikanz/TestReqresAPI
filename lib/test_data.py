@@ -1,4 +1,6 @@
-class ApiTestData:
+class TestDataAPI:
     pass
-class UITestData:
+class TestDataUI:
+    pass
+class CommonTestData:
     pass

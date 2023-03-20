@@ -24,8 +24,6 @@ class ApiClient:
     ):
         if location:
             url = urljoin(self.base_url, location)
-        else:
-            url = url
         response = requests.request(
             method=method,
             url=url,
@@ -33,18 +31,18 @@ class ApiClient:
             data=data,
             params=params
         )
-
+        print(response.text)
         if check_status_code:
             assert (
                 response.status_code == expected_status
-            ), f"Expected {expected_status}, but got {response.status_code}"
+            ), f"Неожиданный status_code, ожидалось: {expected_status}, получено: {response.status_code}"
 
         if jsonify:
             try:
                 json_response: dict = response.json()
             except JSONErrorException:
                 raise JSONErrorException(
-                    f"Expected json response from api request {url}"
+                    f"Ожидался json ответ после запроса на {url}"
                 )
             return json_response
         return response
