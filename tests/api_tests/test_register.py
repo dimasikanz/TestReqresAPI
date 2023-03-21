@@ -3,7 +3,7 @@ from lib.apis import APILocations
 from lib.constants import CommonConstants
 
 
-@pytest.mark.API
+@pytest.mark.api
 class TestRegister:
     def test_valid_register(self, api_client):
         credentials = {

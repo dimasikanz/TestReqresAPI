@@ -2,7 +2,7 @@ import pytest
 from lib.apis import APILocations
 
 
-@pytest.mark.API
+@pytest.mark.api
 class TestGetResources:
     def test_get_page_of_recources(self, api_client):
         response = api_client.request_advanced(

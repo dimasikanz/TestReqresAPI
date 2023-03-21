@@ -2,7 +2,7 @@ import pytest
 from lib.apis import APILocations
 
 
-@pytest.mark.API
+@pytest.mark.api
 class TestLogin:
     def test_valid_login(self, api_client, setup_valid_account):
         credentials = {

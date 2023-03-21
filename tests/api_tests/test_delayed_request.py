@@ -3,7 +3,7 @@ from lib.test_data import TestDataAPI
 from lib.apis import APILocations
 from datetime import datetime, timedelta
 
-@pytest.mark.API
+@pytest.mark.api
 class TestGetUsers:
     def test_get_page_of_users_responds_correct_fields(self, api_client):
         params = {"delay": 3}

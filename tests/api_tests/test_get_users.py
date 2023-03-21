@@ -3,7 +3,7 @@ from lib.apis import APILocations
 from lib.test_data import TestDataAPI
 
 
-@pytest.mark.API
+@pytest.mark.api
 class TestGetUsers:
     @pytest.mark.parametrize("page", TestDataAPI.PAGES_NUMBERS)
     def test_get_certain_page_of_users(self, api_client, page):

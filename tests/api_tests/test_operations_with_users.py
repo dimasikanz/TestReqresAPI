@@ -4,7 +4,7 @@ from lib.test_data import TestDataAPI
 import random
 
 
-@pytest.mark.API
+@pytest.mark.api
 class TestOperationsWithUsers:
     @pytest.mark.parametrize("name_with_job", TestDataAPI.NAMES_WITH_JOBS)
     def test_post_for_create_user(self, api_client, name_with_job):
