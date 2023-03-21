@@ -22,6 +22,6 @@ def config(request):
 @pytest.fixture(scope="session")
 def api_client(config):
     """
-    Апи клиент описан здесь, т.к. он нужен и в api тестах, и в ui тестах
+    Апи клиент, нужен и в api тестах, и в ui тестах
     """
     return ApiClient(base_url=config["url"])
