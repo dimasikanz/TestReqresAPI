@@ -1,7 +1,9 @@
+import random
+
 import pytest
+
 from lib.lib_api.apis import APILocations
 from lib.lib_api.test_data import TestDataAPI
-import random
 
 
 @pytest.mark.api

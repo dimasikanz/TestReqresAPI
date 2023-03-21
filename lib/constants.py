@@ -12,10 +12,11 @@ class APIConstants:
 class UIConstants:
     WEB_DRIVER_WAIT_DEFAULT_TIMEOUT = 10
     IS_OPENED_TIMEOUT_DEFAULT = 15
-    DEFAULT_BROWSER = 'chrome'
-    DRIVER_VERSION = '106.0.5249.61'
+    DEFAULT_BROWSER = "chrome"
+    DRIVER_VERSION = "106.0.5249.61"
+
     class BasePageConstants:
         BASE_PAGE_URL = CommonConstants.DEFAULT_URL
 
     class MainPageConstants:
-        DEFAULT_REQUEST_URL='/api/users?page=2'
+        DEFAULT_REQUEST_URL = "/api/users?page=2"

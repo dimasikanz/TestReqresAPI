@@ -1,4 +1,5 @@
 import pytest
+
 from lib.lib_api.apis import APILocations
 
 
@@ -17,7 +18,9 @@ class TestGetResources:
             data_from_page is not None
         ), f'Неожиданный ответ, в ответе ожидалось поле "data", получено: {response}'
 
-    def test_get_certain_recource_responds_correct_response(self, api_client, setup_valid_account):
+    def test_get_certain_recource_responds_correct_response(
+        self, api_client, setup_valid_account
+    ):
         request_resource_id = 2
         response = api_client.request_advanced(
             method="GET",

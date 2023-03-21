@@ -1,7 +1,9 @@
-import pytest
-from lib.lib_api.test_data import TestDataAPI
-from lib.lib_api.apis import APILocations
 from datetime import datetime, timedelta
+
+import pytest
+
+from lib.lib_api.apis import APILocations
+from lib.lib_api.test_data import TestDataAPI
 
 
 @pytest.mark.api

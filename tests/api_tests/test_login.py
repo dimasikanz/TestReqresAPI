@@ -1,4 +1,5 @@
 import pytest
+
 from lib.lib_api.apis import APILocations
 
 

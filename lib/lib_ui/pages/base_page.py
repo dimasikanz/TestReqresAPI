@@ -14,7 +14,7 @@ class PageNotOpenedExeption(Exception):
 class BasePage(object):
     locators = locators.BasePageLocators()
     constants = UIConstants.BasePageConstants()
-    url = f'{constants.BASE_PAGE_URL}/'
+    url = f"{constants.BASE_PAGE_URL}/"
 
     def is_opened(self, timeout=UIConstants.IS_OPENED_TIMEOUT_DEFAULT):
         start_time = time.time()

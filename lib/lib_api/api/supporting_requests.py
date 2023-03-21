@@ -1,6 +1,7 @@
-from .apiclient import ApiClient
-from lib.lib_api.apis import APILocations
 from lib.constants import APIConstants
+from lib.lib_api.apis import APILocations
+
+from .apiclient import ApiClient
 
 
 def create_new_account(

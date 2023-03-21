@@ -1,6 +1,7 @@
 import pytest
-from lib.lib_api.apis import APILocations
+
 from lib.constants import APIConstants
+from lib.lib_api.apis import APILocations
 
 
 @pytest.mark.api
