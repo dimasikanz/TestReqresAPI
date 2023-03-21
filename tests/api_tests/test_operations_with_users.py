@@ -7,7 +7,7 @@ import random
 @pytest.mark.api
 class TestOperationsWithUsers:
     @pytest.mark.parametrize("name_with_job", TestDataAPI.NAMES_WITH_JOBS)
-    def test_post_for_create_user(self, api_client, name_with_job):
+    def test_post_for_create_user_creates_user(self, api_client, name_with_job):
         user_info = {"name": name_with_job[0], "job": name_with_job[1]}
         response = api_client.request_advanced(
             method="POST",
@@ -25,7 +25,7 @@ class TestOperationsWithUsers:
             response.get("job") == user_info["job"]
         ), f'Неожиданный ответ, в поле "job" ожидалось: {user_info["job"]}, получено: {response.get("job")}'
 
-    def test_put_for_update_user(self, api_client, setup_valid_user):
+    def test_put_for_update_user_updates_user(self, api_client, setup_valid_user):
         new_user_data = {
             "name": f"new_name{random.randint(0,100000)}",
             "job": f"new_job{random.randint(0,100000)}",
@@ -43,7 +43,7 @@ class TestOperationsWithUsers:
             response.get("job") == new_user_data["job"]
         ), f'Неожиданное значение в поле "job", ожидалось: {new_user_data["job"]}, получено: {response.get("name")}'
 
-    def test_patch_for_update_user(self, api_client, setup_valid_user):
+    def test_patch_for_update_user_updates_user(self, api_client, setup_valid_user):
         new_user_data = {
             "name": f"new_name{random.randint(0,100000)}",
             "job": f"new_job{random.randint(0,100000)}",
@@ -61,7 +61,7 @@ class TestOperationsWithUsers:
             response.get("job") == new_user_data["job"]
         ), f'Неожиданное значение в поле "job", ожидалось: {new_user_data["job"]}, получено: {response.get("name")}'
 
-    def test_delete_user(self, api_client, setup_valid_user):
+    def test_delete_user_deletes_user(self, api_client, setup_valid_user):
         response = api_client.request_advanced(
             method="DELETE",
             expected_status=204,

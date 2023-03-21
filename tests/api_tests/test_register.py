@@ -5,7 +5,7 @@ from lib.constants import APIConstants
 
 @pytest.mark.api
 class TestRegister:
-    def test_valid_register(self, api_client):
+    def test_valid_register_responds_token_and_id(self, api_client):
         credentials = {
             "email": APIConstants.DEFAULT_USER_EMAIL,
             "password": APIConstants.DEFAULT_USER_PASSWORD,
@@ -20,7 +20,7 @@ class TestRegister:
             response.get("token") is not None
         ), f'Неожиданный ответ, ожидалось, что в ответе будет поле "token", получено: {response}'
 
-    def test_register_without_password(self, api_client):
+    def test_register_without_password_responds_400(self, api_client):
         credentials = {"email": APIConstants.DEFAULT_USER_EMAIL}
         response = api_client.request_advanced(
             method="POST",

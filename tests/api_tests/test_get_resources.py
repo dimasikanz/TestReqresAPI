@@ -4,7 +4,7 @@ from lib.lib_api.apis import APILocations
 
 @pytest.mark.api
 class TestGetResources:
-    def test_get_page_of_recources(self, api_client):
+    def test_get_page_of_recources_responds_correct_response(self, api_client):
         response = api_client.request_advanced(
             method="GET", location=APILocations.RESOURCES_LOCATION
         )
@@ -17,7 +17,7 @@ class TestGetResources:
             data_from_page is not None
         ), f'Неожиданный ответ, в ответе ожидалось поле "data", получено: {response}'
 
-    def test_get_certain_recource(self, api_client, setup_valid_account):
+    def test_get_certain_recource_responds_correct_response(self, api_client, setup_valid_account):
         request_resource_id = 2
         response = api_client.request_advanced(
             method="GET",
@@ -28,7 +28,7 @@ class TestGetResources:
             id_from_response == request_resource_id
         ), f"Неожиданный id в ответе, ожидалось: {request_resource_id}, получено: {id_from_response}"
 
-    def test_get_nonexistent_resouce(self, api_client):
+    def test_get_nonexistent_resouce_responds_correct_response(self, api_client):
         response = api_client.request_advanced(
             method="GET",
             expected_status=404,

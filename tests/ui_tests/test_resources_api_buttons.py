@@ -2,9 +2,9 @@ import pytest
 import json
 
 @pytest.mark.ui
-class TestUsersButtons:
-    def test_list_users_button_press_shows_correct_request_and_response(self, main_page, api_client):
-        main_page.click_button_with_api(locator=main_page.locators.LIST_USERS_BUTTON_LOCATOR)
+class TestResourcesButtons:
+    def test_list_resources_button_press_shows_correct_request_and_response(self, main_page, api_client):
+        main_page.click_button_with_api(locator=main_page.locators.LIST_RESOURCES_BUTTON_LOCATOR)
         ui_request_url = main_page.find(locator=main_page.locators.URL_LOCATOR)
         ui_response_code = main_page.find(locator=main_page.locators.RESPONSE_CODE_LOCATOR)
         ui_response_dict = json.loads(main_page.find(locator=main_page.locators.RESPONSE_TEXT_LOCATOR).text)
@@ -13,8 +13,8 @@ class TestUsersButtons:
             f'Неправильное тело ответа, ожидалось: {api_response}, получено: {ui_response_dict}'
         )
 
-    def test_single_user_button_press_shows_correct_request_and_response(self, main_page, api_client):
-        main_page.click_button_with_api(locator=main_page.locators.SINGLE_USER_BUTTON_LOCATOR)
+    def test_single_resource_button_press_shows_correct_request_and_response(self, main_page, api_client):
+        main_page.click_button_with_api(locator=main_page.locators.SINGLE_RESOURCE_BUTTON_LOCATOR)
         ui_request_url = main_page.find(locator=main_page.locators.URL_LOCATOR)
         ui_response_code = main_page.find(locator=main_page.locators.RESPONSE_CODE_LOCATOR)
         ui_response_dict = json.loads(main_page.find(locator=main_page.locators.RESPONSE_TEXT_LOCATOR).text)
@@ -24,8 +24,8 @@ class TestUsersButtons:
         )
 
 
-    def test_single_user_not_found_button_press_shows_correct_request_and_response(self, main_page, api_client):
-        main_page.click_button_with_api(locator=main_page.locators.SINGLE_USER_NOT_FOUND_BUTTON_LOCATOR)
+    def test_single_resource_not_found_button_press_shows_correct_request_and_response(self, main_page, api_client):
+        main_page.click_button_with_api(locator=main_page.locators.SINGLE_RESOURCE_NOT_FOUND_BUTTON_LOCATOR)
         ui_request_url = main_page.find(locator=main_page.locators.URL_LOCATOR)
         ui_response_code = main_page.find(locator=main_page.locators.RESPONSE_CODE_LOCATOR)
         ui_response = main_page.find(locator=main_page.locators.RESPONSE_TEXT_LOCATOR).text

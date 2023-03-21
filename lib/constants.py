@@ -18,4 +18,4 @@ class UIConstants:
         BASE_PAGE_URL = CommonConstants.DEFAULT_URL
 
     class MainPageConstants:
-        pass
+        DEFAULT_REQUEST_URL='/api/users?page=2'

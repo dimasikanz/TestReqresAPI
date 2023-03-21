@@ -14,7 +14,7 @@ class PageNotOpenedExeption(Exception):
 class BasePage(object):
     locators = locators.BasePageLocators()
     constants = UIConstants.BasePageConstants()
-    url = constants.BASE_PAGE_URL
+    url = f'{constants.BASE_PAGE_URL}/'
 
     def is_opened(self, timeout=UIConstants.IS_OPENED_TIMEOUT_DEFAULT):
         start_time = time.time()
@@ -22,7 +22,7 @@ class BasePage(object):
             if self.driver.current_url == self.url:
                 return True
         raise PageNotOpenedExeption(
-            f"Страница {self.url} не открылась за {timeout} секунд, текущая страница{self.driver.current_url}"
+            f"Страница {self.url} не открылась за {timeout} секунд, текущая страница {self.driver.current_url}"
         )
 
     def __init__(self, driver):

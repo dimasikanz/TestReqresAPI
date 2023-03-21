@@ -16,7 +16,7 @@ class TestLogin:
             response.get("token") is not None
         ), f'Неожиданный ответ, ожидалось, что в ответе будет поле "token", получено: {response}'
 
-    def test_login_without_password(self, api_client, setup_valid_account):
+    def test_login_without_password_responds_400(self, api_client, setup_valid_account):
         credentials = {"email": setup_valid_account.email}
         response = api_client.request_advanced(
             method="POST",

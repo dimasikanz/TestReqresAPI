@@ -1,14 +1,8 @@
 import pytest
 
-from lib.lib_api.api.apiclient import ApiClient
 from lib.lib_api.api.supporting_requests import create_new_account, create_new_user
 from lib.constants import APIConstants
 from lib.lib_api.dataclasses.setup_dataclasses import NewUserData, NewAccountData
-
-@pytest.fixture(scope="session")
-def api_client(config):
-    return ApiClient(base_url=config["url"])
-
 
 @pytest.fixture()
 def setup_valid_account(api_client):
