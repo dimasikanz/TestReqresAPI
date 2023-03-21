@@ -1,4 +1,4 @@
-from base_page import BasePage
+from .base_page import BasePage
 
 from lib.constants import UIConstants
 from lib.lib_ui import locators

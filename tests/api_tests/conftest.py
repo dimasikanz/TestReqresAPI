@@ -2,24 +2,8 @@ import pytest
 
 from lib.lib_api.api.apiclient import ApiClient
 from lib.lib_api.api.supporting_requests import create_new_account, create_new_user
-from lib.constants import CommonConstants, APIConstants
+from lib.constants import APIConstants
 from lib.lib_api.dataclasses.setup_dataclasses import NewUserData, NewAccountData
-
-
-def pytest_addoption(parser):
-    """Парсер для чтения параметров из консоли"""
-    parser.addoption("--url", default=CommonConstants.DEFAULT_URL)
-
-
-@pytest.fixture(scope="session")
-def config(request):
-    """
-    Вынос спарсенных из консоли параметров в словарь "config"
-    """
-    url = request.config.getoption("--url")
-
-    return {"url": url}
-
 
 @pytest.fixture(scope="session")
 def api_client(config):
