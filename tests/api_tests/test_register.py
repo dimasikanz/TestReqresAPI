@@ -1,14 +1,14 @@
 import pytest
-from lib.apis import APILocations
-from lib.constants import CommonConstants
+from lib.lib_api.apis import APILocations
+from lib.constants import APIConstants
 
 
 @pytest.mark.api
 class TestRegister:
     def test_valid_register(self, api_client):
         credentials = {
-            "email": CommonConstants.DEFAULT_USER_EMAIL,
-            "password": CommonConstants.DEFAULT_USER_PASSWORD,
+            "email": APIConstants.DEFAULT_USER_EMAIL,
+            "password": APIConstants.DEFAULT_USER_PASSWORD,
         }
         response = api_client.request_advanced(
             method="POST", location=APILocations.REGISTER_LOCATION, data=credentials
@@ -21,7 +21,7 @@ class TestRegister:
         ), f'Неожиданный ответ, ожидалось, что в ответе будет поле "token", получено: {response}'
 
     def test_register_without_password(self, api_client):
-        credentials = {"email": CommonConstants.DEFAULT_USER_EMAIL}
+        credentials = {"email": APIConstants.DEFAULT_USER_EMAIL}
         response = api_client.request_advanced(
             method="POST",
             expected_status=400,

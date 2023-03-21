@@ -1,6 +1,6 @@
 import pytest
-from lib.apis import APILocations
-from lib.test_data import TestDataAPI
+from lib.lib_api.apis import APILocations
+from lib.lib_api.test_data import TestDataAPI
 import random
 
 
@@ -62,8 +62,12 @@ class TestOperationsWithUsers:
         ), f'Неожиданное значение в поле "job", ожидалось: {new_user_data["job"]}, получено: {response.get("name")}'
 
     def test_delete_user(self, api_client, setup_valid_user):
-        response = api_client.request_advanced(method='DELETE', expected_status=204, jsonify=False, location=f'{APILocations.USERS_LOCATION}/{setup_valid_user.id}')
-        assert response.text is '', (
-            f'Неожиданный ответ, ожидалось: "", получено: {response.text}'
+        response = api_client.request_advanced(
+            method="DELETE",
+            expected_status=204,
+            jsonify=False,
+            location=f"{APILocations.USERS_LOCATION}/{setup_valid_user.id}",
         )
-
+        assert (
+            response.text is ""
+        ), f'Неожиданный ответ, ожидалось: "", получено: {response.text}'

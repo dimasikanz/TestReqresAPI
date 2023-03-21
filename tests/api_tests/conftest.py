@@ -1,11 +1,10 @@
-import random
-
 import pytest
 
-from api.apiclient import ApiClient
-from api.supporting_requests import create_new_account, create_new_user
-from lib.constants import CommonConstants
-from lib.dataclasses.setup_dataclasses import NewUserData, NewAccountData
+from lib.lib_api.api.apiclient import ApiClient
+from lib.lib_api.api.supporting_requests import create_new_account, create_new_user
+from lib.constants import CommonConstants, APIConstants
+from lib.lib_api.dataclasses.setup_dataclasses import NewUserData, NewAccountData
+
 
 def pytest_addoption(parser):
     """Парсер для чтения параметров из консоли"""
@@ -26,10 +25,11 @@ def config(request):
 def api_client(config):
     return ApiClient(base_url=config["url"])
 
+
 @pytest.fixture()
 def setup_valid_account(api_client):
-    email = CommonConstants.DEFAULT_USER_EMAIL
-    password = CommonConstants.DEFAULT_USER_PASSWORD
+    email = APIConstants.DEFAULT_USER_EMAIL
+    password = APIConstants.DEFAULT_USER_PASSWORD
     register_data = create_new_account(
         api_client=api_client, email=email, password=password
     )
@@ -43,7 +43,7 @@ def setup_valid_account(api_client):
 
 @pytest.fixture()
 def setup_valid_user(api_client):
-    name = CommonConstants.DEFAULT_USER_NAME
-    job = CommonConstants.DEFAULT_USER_JOB
+    name = APIConstants.DEFAULT_USER_NAME
+    job = APIConstants.DEFAULT_USER_JOB
     user_data = create_new_user(api_client=api_client, name=name, job=job)
     return NewUserData(name=user_data["name"], job=user_data["job"], id=user_data["id"])

@@ -1,6 +1,6 @@
 import pytest
-from lib.apis import APILocations
-from lib.test_data import TestDataAPI
+from lib.lib_api.apis import APILocations
+from lib.lib_api.test_data import TestDataAPI
 
 
 @pytest.mark.api
@@ -30,9 +30,9 @@ class TestGetUsers:
         assert (
             id_from_response == setup_valid_account.id
         ), f"Неожиданный id в ответе, ожидалось: {setup_valid_account.id}, получено: {id_from_response}"
-        assert email_from_response == setup_valid_account.email,(
-            f"Неожиданный email в ответе, ожидалось: {setup_valid_account.email}, получено: {email_from_response}"
-        )
+        assert (
+            email_from_response == setup_valid_account.email
+        ), f"Неожиданный email в ответе, ожидалось: {setup_valid_account.email}, получено: {email_from_response}"
 
     def test_get_unknown_user(self, api_client):
         response = api_client.request_advanced(

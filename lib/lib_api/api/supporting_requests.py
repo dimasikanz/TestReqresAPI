@@ -1,12 +1,12 @@
 from .apiclient import ApiClient
-from lib.apis import APILocations
-from lib.constants import CommonConstants
+from lib.lib_api.apis import APILocations
+from lib.constants import APIConstants
 
 
 def create_new_account(
     api_client: ApiClient,
-    email=CommonConstants.DEFAULT_USER_EMAIL,
-    password=CommonConstants.DEFAULT_USER_PASSWORD,
+    email=APIConstants.DEFAULT_USER_EMAIL,
+    password=APIConstants.DEFAULT_USER_PASSWORD,
 ):
     data = {"email": email, "password": password}
     response = api_client.request_advanced(
@@ -17,8 +17,8 @@ def create_new_account(
 
 def create_new_user(
     api_client: ApiClient,
-    name=CommonConstants.DEFAULT_USER_NAME,
-    job=CommonConstants.DEFAULT_USER_JOB,
+    name=APIConstants.DEFAULT_USER_NAME,
+    job=APIConstants.DEFAULT_USER_JOB,
 ):
     data = {"name": name, "job": job}
     response = api_client.request_advanced(

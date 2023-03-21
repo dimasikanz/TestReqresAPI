@@ -6,11 +6,3 @@ class TestDataAPI:
         ("partemon" "idkwhatimdoing"),
     ]
     DELAYS = [0, 1, 2]
-
-
-class TestDataUI:
-    pass
-
-
-class CommonTestData:
-    pass
