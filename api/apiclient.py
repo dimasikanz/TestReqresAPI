@@ -20,16 +20,12 @@ class ApiClient:
         params=None,
         expected_status=200,
         jsonify=True,
-        check_status_code=True
+        check_status_code=True,
     ):
         if location:
             url = urljoin(self.base_url, location)
         response = requests.request(
-            method=method,
-            url=url,
-            headers=headers,
-            data=data,
-            params=params
+            method=method, url=url, headers=headers, data=data, params=params
         )
         print(response.text)
         if check_status_code:
@@ -41,8 +37,6 @@ class ApiClient:
             try:
                 json_response: dict = response.json()
             except JSONErrorException:
-                raise JSONErrorException(
-                    f"Ожидался json ответ после запроса на {url}"
-                )
+                raise JSONErrorException(f"Ожидался json ответ после запроса на {url}")
             return json_response
         return response
