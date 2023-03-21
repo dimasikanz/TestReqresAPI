@@ -71,5 +71,5 @@ class TestOperationsWithUsers:
             location=f"{APILocations.USERS_LOCATION}/{setup_valid_user.id}",
         )
         assert (
-            response.text is ""
+            response.text == ""
         ), f'Неожиданный ответ, ожидалось: "", получено: {response.text}'
