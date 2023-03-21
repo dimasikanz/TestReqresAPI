@@ -5,6 +5,7 @@ class TestDataAPI:
         ("antonio", "procrastinator"),
         ("partemon" "idkwhatimdoing"),
     ]
+    DELAYS = [0, 1, 2]
 
 
 class TestDataUI:
