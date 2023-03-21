@@ -37,7 +37,7 @@ def builder():
     return Builder()
 
 @pytest.fixture()
-def setup_valid_user_credentials(api_client):
+def setup_valid_user(api_client):
     email = CommonConstants.DEFAULT_USER_EMAIL
     password = CommonConstants.DEFAULT_USER_PASSWORD
     register_data = create_new_user(api_client=api_client, email=email, password=password)
